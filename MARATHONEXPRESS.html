@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARATHON EXPRESS - Jasa Kirim</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fff7e6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(90deg, orange, yellow);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, textarea, button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        button {
+            background: orange;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ff9900;
+        }
+        footer {
+            background: #f2f2f2;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MARATHON EXPRESS</h1>
+        <p>Jasa Kirim Paket Dan Data Wilayah Blitar Raya</p>
+        <p>Aman Cepat & Terpercaya</p>
+    </header><section>
+    <h2>Form Pickup Paket</h2>
+    <p>Isi form di bawah ini untuk penjemputan paket ke alamat Anda</p>
+    <form onsubmit="return kirimWhatsapp();">
+        <input type="text" id="nama" placeholder="Nama Lengkap" required>
+        <input type="text" id="alamat_penjemputan" placeholder="Alamat Penjemputan" required>
+        <input type="text" id="alamat_pengantaran" placeholder="Alamat Pengantaran" required>
+        <input type="text" id="telepon" placeholder="Nomor Telepon" required>
+        <textarea id="detail" placeholder="Detail Paket (ukuran, berat, tujuan)" required></textarea>
+        <button type="submit">Kirim ke WhatsApp</button>
+    </form>
+</section>
+
+<footer>
+    &copy; 2025 MARATHON EXPRESS. All rights reserved.
+</footer>
+
+<script>
+    function kirimWhatsapp() {
+        var nama = document.getElementById('nama').value;
+        var alamat_penjemputan = document.getElementById('alamat_penjemputan').value;
+        var alamat_pengantaran = document.getElementById('alamat_pengantaran').value;
+        var telepon = document.getElementById('telepon').value;
+        var detail = document.getElementById('detail').value;
+
+        var pesan = encodeURIComponent(
+            "Pickup Paket:\n" +
+            "Nama: " + nama + "\n" +
+            "Alamat Penjemputan: " + alamat_penjemputan + "\n" +
+            "Alamat Pengantaran: " + alamat_pengantaran + "\n" +
+            "Telepon: " + telepon + "\n" +
+            "Detail Paket: " + detail
+        );
+
+        window.open("https://wa.me/6282140925183?text=" + pesan, "_blank");
+        return false;
+    }
+</script>
+
+</body>
+</html>
